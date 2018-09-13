@@ -1,0 +1,12 @@
+.comment-input {
+    width: 100%;
+}
+
+.comment-input-textarea {
+    min-height: 100px;
+}
+
+.comment-submit {
+    margin-left: 10px;
+    margin-bottom: 23px;
+}

@@ -7,6 +7,18 @@
     margin: 0 auto;
 }
 
+mat-card-title {
+    font-size: 2em;
+    font-weight: 500;
+}
+
+mat-card-subtitle {
+    font-size: 1em;
+    margin-bottom: 25px;
+}
+
 .article-text {
-    filter: blur(10px);
+    font-size: 18px;
+    line-height: 22px;
+    filter: blur(7px);
 }
