@@ -2,6 +2,21 @@
     display: block;
 }
 
+/* Comment List */
+.comment {
+    margin-bottom: 25px;
+}
+
+.comment-user {
+    color: rgba(0,0,0,.87);
+}
+
+/* Comment Box */
+
+.comment-box-headline {
+    color: chocolate;
+}
+
 .comment-input {
     width: 100%;
 }
