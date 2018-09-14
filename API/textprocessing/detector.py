@@ -74,27 +74,6 @@ def scanForSpam(inputText):
 
 
 
-data = json.load(codecs.open('data.json', 'r', 'utf-8-sig'))
-postive = data["positive"]
-negative = data["negative"]
-feature_set = []
-labels = []
-
-
-
-f = open("export.csv","w")
-for value in postive.values():
-    if scanForSpam(value)["Val1"]:
-        print(str(scanForSpam(value)["Val1"]))
-        print(value)
-    f.write(str(scanForSpam(value)["Val1"]))
-f2 = open("export2.csv","w")
-
-print("Ab hier gehen die schlechten los")
-for value in negative.values():
-    f2.write(str(scanForSpam(value)["Val2"]))
-    print(str(scanForSpam(value)["Val2"]))
-    print(value)
 
     #print(scanForSpam(value))
 
@@ -109,3 +88,24 @@ while False:
     res = clf.predict([features])
     print (clf.predict_proba([features]))
     print (["Not Spam", "Spam!"][res[0]])
+    data = json.load(codecs.open('data.json', 'r', 'utf-8-sig'))
+    postive = data["positive"]
+    negative = data["negative"]
+    feature_set = []
+    labels = []
+
+
+
+    f = open("export.csv","w")
+    for value in postive.values():
+        if scanForSpam(value)["Val1"]:
+            print(str(scanForSpam(value)["Val1"]))
+            print(value)
+        f.write(str(scanForSpam(value)["Val1"]))
+    f2 = open("export2.csv","w")
+
+    print("Ab hier gehen die schlechten los")
+    for value in negative.values():
+        f2.write(str(scanForSpam(value)["Val2"]))
+        print(str(scanForSpam(value)["Val2"]))
+        print(value)
