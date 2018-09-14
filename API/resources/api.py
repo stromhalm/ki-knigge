@@ -2,6 +2,7 @@ import sqlite3
 from flask_restful import Resource,reqparse
 from models.kiapi import KIAPI
 from textprocessing.profanityFilter import Filter
+from textprocessing.detector import scanForSpam
 
 
 
@@ -20,5 +21,8 @@ class ApiCall(Resource):
         goodText = f.clean()
 
         return {"input" : input.input,
-        "score" : 100,
-        "GoodText" : goodText }
+        "cleanText" : goodText,
+        "score" : scanForSpam(input.input) }
+
+
+        # Alles groß, Satzzeichen
