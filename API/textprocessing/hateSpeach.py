@@ -27,12 +27,7 @@ def make_dict():
             words[i] = ""
 
     dictionary = Counter(words)
-
-    del dictionary[""]
-    mostCommonList = dictionary.most_common(2000)
-    wordlist = [item for item in words if item not in mostCommonList]
-    print(wordlist)
-    return list(set(wordlist))
+    return dictionary.most_common(2000)
 
 
 
@@ -61,7 +56,7 @@ def make_dataset(dataset):
             print("Exception geworfen")
 
         for entry in dataset:
-            data.append(words.count(entry))
+            data.append(words.count(entry[0]))
         feature_set.append(data)
         labels.append(0)
 
@@ -73,7 +68,7 @@ def make_dataset(dataset):
         except:
             print("Exception")
         for entry in dataset:
-            data.append(words.count(entry))
+            data.append(words.count(entry[0]))
         feature_set.append(data)
         labels.append(1)
 

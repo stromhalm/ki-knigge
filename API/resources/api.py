@@ -17,7 +17,7 @@ class ApiCall(Resource):
         input = KIAPI(**data)
 
         # Komplexer Aufruf der die Daten verarbeitet.
-        f = Filter(input.input, clean_word='unicorn')
+        f = Filter(input.input, clean_word='🦄')
         goodText = f.clean()
 
         return {"input" : input.input,
