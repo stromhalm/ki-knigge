@@ -11,6 +11,7 @@
 mat-card-title {
     font-size: 2em;
     font-weight: 500;
+    color: chocolate;
 }
 
 mat-card-subtitle {

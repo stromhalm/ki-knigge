@@ -1,6 +1,19 @@
+<h2 class="comment-box-headline">Comments</h2>
 
-<h3>What do you think?</h3>
-<div fxLayout="row">
+<div class="comment-list">
+    <mat-card class="comment" *ngFor="let comment of comments | async">
+        <mat-card-subtitle>
+            {{ comment.user }}
+        </mat-card-subtitle>
+        <mat-card-content class="comment-text">
+            {{ comment.text }}
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<h3 class="comment-box-headline">What do you think?</h3>
+
+<div fxLayout="row" class="comment-box">
     <mat-form-field class="comment-input" appearance="outline" flex>
         <textarea matInput placeholder="Please be nice ..." [(ngModel)]="commentText" class="comment-input-textarea"></textarea>
     </mat-form-field>
@@ -9,7 +22,7 @@
             mat-raised-button
             color="primary"
             class="comment-submit"
-            (click)="openDialog($event)"
+            (click)="tryToPublishComment()"
             [disabled]="!commentText">Comment</button>
     </div>
 </div>
