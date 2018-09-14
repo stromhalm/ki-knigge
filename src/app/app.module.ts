@@ -6,22 +6,27 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { KiForumComponent } from './ki-forum/ki-forum.component';
+import { KiForumComponent, NgbdModalContent } from './ki-forum/ki-forum.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
-    KiForumComponent
-  ],
+    KiForumComponent,
+    NgbdModalContent
+    ],
+  
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     MatCardModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    NgbModule
   ],
   providers: [],
+  entryComponents: [NgbdModalContent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
