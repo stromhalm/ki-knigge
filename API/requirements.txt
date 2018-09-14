@@ -3,4 +3,7 @@ Flask-RESTful
 Flask-JWT
 Flask-SQLAlchemy
 uwsgi
-flask_cors
+flask-cors
+numpy
+scipy
+sklearn
