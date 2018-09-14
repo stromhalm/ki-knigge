@@ -1,10 +1,15 @@
 
 <h3>What do you think?</h3>
-<form class="example-form" fxLayout="row">
+<div fxLayout="row">
     <mat-form-field class="comment-input" appearance="outline" flex>
-        <textarea matInput placeholder="Please be nice ..." class="comment-input-textarea"></textarea>
+        <textarea matInput placeholder="Please be nice ..." [(ngModel)]="commentText" class="comment-input-textarea"></textarea>
     </mat-form-field>
     <div fxLayout="column" fxLayoutAlign="end">
-        <button mat-raised-button color="primary" class="comment-submit">Comment</button>
+        <button
+            mat-raised-button
+            color="primary"
+            class="comment-submit"
+            (click)="openDialog($event)"
+            [disabled]="!commentText">Comment</button>
     </div>
-</form>
+</div>
