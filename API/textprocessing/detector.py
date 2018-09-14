@@ -34,10 +34,10 @@ def make_dict():
 
     dictionary = Counter(words)
     del dictionary[""]
-    return dictionary.most_common(3000)
+    return dictionary.most_common(4000)
 
 
-clf = load("textprocessing/text-classifier.mdl")
+clf = load("textprocessing/super-classifier.mdl")
 d = make_dict()
 
 

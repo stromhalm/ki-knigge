@@ -3,6 +3,7 @@ from flask_restful import Api
 from flask_jwt import JWT
 from security import authenticate,identity
 from resources.api import ApiCall
+from resources.comments import Comment
 
 
 
@@ -17,6 +18,7 @@ jwt =JWT(app,authenticate, identity)
 
 #Register Endpoints of REST API
 api.add_resource(ApiCall,'/api/')
+api.add_resource(Comment, '/comments/')
 
 
 

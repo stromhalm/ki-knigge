@@ -22,7 +22,7 @@ class ApiCall(Resource):
 
         return {"input" : input.input,
         "cleanText" : goodText,
-        "score" : "40" }
+        "score" : scanForSpam(input.input) }
 
 
         # Alles groß, Satzzeichen
