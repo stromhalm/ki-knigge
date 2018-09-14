@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
-import { KiForumComponent } from './ki-forum/ki-forum.component'
 
 @Component({
   selector: 'app-root',

@@ -4,16 +4,18 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { KiForumComponent, NgbdModalContent } from './ki-forum/ki-forum.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { KiForumComponent } from './ki-forum/ki-forum.component';
+import { VideoDialog } from './ki-forum/ki-forum.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     KiForumComponent,
-    NgbdModalContent
+    VideoDialog
     ],
   
   imports: [
@@ -23,10 +25,11 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     MatCardModule,
     MatInputModule,
     MatButtonModule,
-    NgbModule
+    MatDialogModule,
+    FormsModule
   ],
-  providers: [],
-  entryComponents: [NgbdModalContent],
+  providers: [MatDialog],
+  entryComponents: [VideoDialog],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
