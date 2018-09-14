@@ -1,7 +1,7 @@
 import sqlite3
 from flask_restful import Resource,reqparse
 from models.kiapi import KIAPI
-
+from textprocessing.profanityFilter import Filter
 
 
 
@@ -16,6 +16,9 @@ class ApiCall(Resource):
         input = KIAPI(**data)
 
         # Komplexer Aufruf der die Daten verarbeitet.
+        f = Filter(input.input, clean_word='unicorn')
+        goodText = f.clean()
 
         return {"input" : input.input,
-        "score" : 100}
+        "score" : 100,
+        "GoodText" : goodText }
