@@ -1,7 +1,7 @@
-<h2 class="comment-box-headline">Comments</h2>
+<h2 class="comment-box-headline">Kommentare</h2>
 
 <div class="comment-list">
-    <mat-card class="comment" *ngFor="let comment of comments | async">
+    <mat-card class="comment" *ngFor="let comment of comments | async" [class.published]="comment.published">
         <mat-card-subtitle>
             {{ comment.user }}
         </mat-card-subtitle>
@@ -11,11 +11,11 @@
     </mat-card>
 </div>
 
-<h3 class="comment-box-headline">What do you think?</h3>
+<h3 class="comment-box-headline">Was denkst du?</h3>
 
 <div fxLayout="row" class="comment-box">
     <mat-form-field class="comment-input" appearance="outline" flex>
-        <textarea matInput placeholder="Please be nice ..." [(ngModel)]="commentText" class="comment-input-textarea"></textarea>
+        <textarea matInput placeholder="Bitte sei nett ..." [(ngModel)]="commentText" class="comment-input-textarea"></textarea>
     </mat-form-field>
     <div fxLayout="column" fxLayoutAlign="end">
         <button
@@ -23,6 +23,6 @@
             color="primary"
             class="comment-submit"
             (click)="tryToPublishComment()"
-            [disabled]="!commentText">Comment</button>
+            [disabled]="!commentText">Absenden</button>
     </div>
 </div>

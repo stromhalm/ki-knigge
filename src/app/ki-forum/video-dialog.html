@@ -1,15 +1,15 @@
 <h2 mat-dialog-title>Dat kannste kniggen</h2>
 
 <mat-dialog-content>
-    
-        Are you sure you want to post this comment?<br>
-        Please watch our community guidelines video below.<br>
+
+        Bist du dir sicher, dass du diesen Kommentar so absenden möchtest?<br>
+        Bitte sieh dir zunächst das Video mit unseren Community-Guidelines an.<br><br>
 
         <div id="video-player" style="width:100%;height:360px;"></div>
 
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close color="primary">Write something nicer</button>
-    <button mat-button *ngIf="videoCompleted" [mat-dialog-close]="true">Post this comment, please</button>
-    <button mat-button *ngIf="!videoCompleted" [mat-dialog-close]="true" disabled>Please watch the video first</button>
+    <button mat-button mat-dialog-close color="primary">Etwas Netteres schreiben</button>
+    <button mat-button *ngIf="videoCompleted" [mat-dialog-close]="true">Ich möchte dies kommentieren</button>
+    <button mat-button *ngIf="!videoCompleted" [mat-dialog-close]="true" disabled>Bitte zunächst das Video ansehen</button>
 </mat-dialog-actions>

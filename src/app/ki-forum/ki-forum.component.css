@@ -5,6 +5,8 @@
 /* Comment List */
 .comment {
     margin-bottom: 25px;
+    border: 1px dashed;
+    opacity: 0.5;
 }
 
 .comment-user {
@@ -27,4 +29,9 @@
 .comment-submit {
     margin-left: 10px;
     margin-bottom: 23px;
+}
+
+.published {
+    border: none;
+    opacity: 1;
 }

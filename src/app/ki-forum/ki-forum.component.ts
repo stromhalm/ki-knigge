@@ -27,17 +27,20 @@ export class KiForumComponent {
   async tryToPublishComment() {
 
     var response = await this.http.post<ApiResponse>('http://localhost:5000/api/', {input: this.commentText}).toPromise();
+    var published = true;
 
     if (response.score < 50) {
       var dialogRef = this.dialog.open(VideoDialog, {width: '800px'});
       var result = await dialogRef.afterClosed().toPromise();
+      published = false;
       if (!result) return;
     }
     
     this.commentsCollection.add({
       user: 'Anonymous',
       text: this.commentText,
-      created: new Date()
+      created: new Date(),
+      published: published
     });
     this.commentText = '';
   }
@@ -52,7 +55,8 @@ interface ApiResponse {
 interface Comment {
   user: string,
   text: string,
-  created: Date
+  created: Date,
+  published: boolean
 }
 
 @Component({
