@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './ki-forum.component.html',
   styleUrls: ['./ki-forum.component.css']
 })
-export class KiForumComponent implements OnInit {
+export class KiForumComponent {
 
   commentsCollection: AngularFirestoreCollection<Comment>;
   comments: Observable<Comment[]>;
@@ -28,7 +28,7 @@ export class KiForumComponent implements OnInit {
 
     var response = await this.http.post<ApiResponse>('http://localhost:5000/api/', {input: this.commentText}).toPromise();
 
-    if (parseInt(response.score) < 50) {
+    if (response.score < 50) {
       var dialogRef = this.dialog.open(VideoDialog, {width: '800px'});
       var result = await dialogRef.afterClosed().toPromise();
       if (!result) return;
@@ -41,15 +41,12 @@ export class KiForumComponent implements OnInit {
     });
     this.commentText = '';
   }
-
-  ngOnInit() {
-  }
 }
 
 interface ApiResponse {
   input: string,
   cleanText: string,
-  score: string,
+  score: number,
 }
 
 interface Comment {
@@ -83,9 +80,13 @@ export class VideoDialog implements OnInit {
 
   ngOnInit() {
     var alertComponent = this;
+
+    // Register event listener
     window.alertMe = function(player, event, data) {
       window.dispatchEvent(new CustomEvent('videoEvent', {detail: {player: player, name: event, data: data}}));
     }
+
+    // Initialize video player
     var _js3qi = setInterval(function () {
       clearInterval(_js3qi);
       var js3qVideoPlayer = new js3q({
