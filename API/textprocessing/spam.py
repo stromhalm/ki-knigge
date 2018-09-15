@@ -39,6 +39,7 @@ def make_dict():
     return dictionary.most_common(3000)
 
 
+
 def make_dataset(dictionary):
     direc = "emails/"
     files = os.listdir(direc)
